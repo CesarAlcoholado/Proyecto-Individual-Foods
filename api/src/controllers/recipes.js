@@ -26,6 +26,9 @@ const getinfo = async () => {
   return info;
 };
 
+const get_fromDb = async(id)=>{
+  
+}
 
 const get_byId = async (id)=>{
   const response = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?&apiKey=${process.env.API_KEY}`
