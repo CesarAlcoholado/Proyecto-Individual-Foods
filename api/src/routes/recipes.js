@@ -1,6 +1,6 @@
 const { Router } = require ('express');
 const router = Router();
-const { getinfo, get_byId } = require("../controllers/recipes");
+const { getinfo, get_byId, get_fromDb } = require("../controllers/recipes");
 
 router.get('/', async (req,res, next)=>{
   const {name} = req.query; //!validar tolowercase en el front
@@ -19,7 +19,8 @@ router.get('/:id', async (req,res)=>{
   
   try {
     const recipe = await get_byId(id);
-    if(!recipe) res.status(404).send("recipe not found");
+    const recipeDb = await get_fromDb(id);
+    if(!recipe || !recipeDb) res.status(404).send("recipe not found");
     res.status(201).send(recipe)
   } catch (error) {
     res.status(400).send("search by id error")

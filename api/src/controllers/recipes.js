@@ -27,7 +27,8 @@ const getinfo = async () => {
 };
 
 const get_fromDb = async(id)=>{
-  
+  const results = await Recipe.findbyPk(id);
+  return results;
 }
 
 const get_byId = async (id)=>{
@@ -52,4 +53,5 @@ return recipe_byId
 module.exports = {
   getinfo,
   get_byId,
+  get_fromDb,
 };
