@@ -1,9 +1,11 @@
 const { Router } = require("express");
 const router = Router();
-const {Recipe} = require('../db')
+const {Recipe, Diet} = require('../db')
 
+
+//!terminado
 router.post('/', async (req,res,next)=>{
-  const {name, summary, healthscore, steps} = req.body;
+  const {name, summary, healthscore, steps, dietTypes} = req.body;
   try {
     if(!name || !summary) res.status(400).send("Falta enviar datos obligatorios")
     const recipe = await Recipe.create({
@@ -12,9 +14,18 @@ router.post('/', async (req,res,next)=>{
       healthscore,
       steps
     })
-    res.status(201).send("Receta creada con exito")
+    const dataTypes = await Diet.findAll({
+      where: {
+        name: dietTypes
+        },
+      });
+      console.log(dataTypes);
+    const typeId = dataTypes?.map((d) => d.dataValues.id);
+    recipe.addDiet(typeId);//dataTypes
+    res.status(201).send(recipe)
   } catch (error) {
     res.status(400).send("Error en la creacion de la receta")
+  
   }
 })
 

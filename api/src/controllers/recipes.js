@@ -1,6 +1,7 @@
 const axios = require("axios");
 const { API_KEY } = process.env;
 const db = require("../db");
+const { Diet, Recipe } = require("../db");
 
 const getinfo = async () => {
   const apiResponse = await axios.get(
@@ -26,10 +27,32 @@ const getinfo = async () => {
   return info;
 };
 
+//!creado get_namesfromDb
+
+const get_namesfromDb = async () => {
+  return await Recipe.findAll({
+    include: {
+      model: Diet,
+      attributes: ["name"],
+      through: {
+        attributes: [],
+      },
+    },
+  });
+};
+
 const get_fromDb = async(id)=>{
   const results = await Recipe.findbyPk(id);
   return results;
 }
+
+const get_allInfo = async () => {
+  const recipes = await getinfo(); //*traigo de la api
+  const recipes_db = await get_namesfromDb(); //*traigo de la DB
+  const allInfo = recipes.concat(recipes_db); //*junto toda la info
+
+  return allInfo;
+};
 
 const get_byId = async (id)=>{
   const response = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?&apiKey=${process.env.API_KEY}`
@@ -54,4 +77,6 @@ module.exports = {
   getinfo,
   get_byId,
   get_fromDb,
+  get_namesfromDb,
+  get_allInfo
 };
