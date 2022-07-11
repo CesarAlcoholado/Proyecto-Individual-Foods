@@ -42,8 +42,15 @@ const get_namesfromDb = async () => {
 };
 
 const get_fromDb = async(id)=>{
-  const results = await Recipe.findbyPk(id);
-  return results;
+    return await Recipe.findByPk(id, {
+      include: {
+        model: Diet,
+        attributes: ["name"],
+        through: {
+          attributes: [],
+        },
+      },
+    });
 }
 
 const get_allInfo = async () => {

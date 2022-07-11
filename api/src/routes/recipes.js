@@ -24,22 +24,22 @@ router.get('/', async (req,res, next)=>{
 })
 
 
-//!terminar (if-else)
+//!terminar
 router.get('/:id', async (req,res)=>{
   const {id} = req.params;
   
   try {
-    if(id){
-
-      const recipe = await get_byId(id);
+    if (/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(id)) {
       const recipeDb = await get_fromDb(id);
-      if(!recipe || !recipeDb) res.status(404).send("recipe not found");
-      res.status(201).send(recipe)
-
+      console.log(recipeDb);
+      res.status(201).send(recipeDb);
+    } else {
+        const recipeApi = await get_byId(id);
+        res.status(201).send(recipeApi);
+      }
     }
-    res.status(400).send("Se debe ingresar id")
-  } catch (error) {
-    res.status(400).send("search by id error")
+  catch (error) {
+    next(error)
   }
 })
 
