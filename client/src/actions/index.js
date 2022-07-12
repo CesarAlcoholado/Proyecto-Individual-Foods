@@ -6,7 +6,7 @@ export const TYPE_FILTER = "TYPE_FILTER";
 export function getRecipeDetail(recipeId) {
   return async function (dispatch) {
     try {
-      var respuesta = await axios.get(`https://localhost:3001/recipes/${recipeId}`)
+      var respuesta = await axios.get(`http://localhost:3001/recipes/${recipeId}`)
         return dispatch({ type: "GET_RECIPE_DETAIL", payload: respuesta.data });
         }
        catch (error) {
@@ -18,7 +18,7 @@ export function getRecipeDetail(recipeId) {
 export function addRecipe(payload) {
   return async function (){
     try {
-      var respuesta = axios.post(`https://localhost:3001/recipe`, payload);
+      var respuesta = axios.post(`http://localhost:3001/recipe`, payload);
       return respuesta;
     } catch (error) {
       console.log(error);
