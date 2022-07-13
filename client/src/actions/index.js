@@ -53,16 +53,17 @@ export function getRecipes(name) {
   };
 }
 
-export function TypeFiltered (payload) {//tipo de dieta por el cual voy a filtrar
-    return {
-        type: "TYPE_FILTER",
-        payload
-    }
-};
-
 export function sort (order){ //ascendente o descendente
   return{
     type: "SORT",
     payload: order
   }
+}
+
+export function typeFilter(filter) {
+  //ascendente o descendente
+  return {
+    type: "TYPE_FILTER",
+    payload: filter,
+  };
 }

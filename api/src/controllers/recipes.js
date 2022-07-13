@@ -11,6 +11,7 @@ const getinfo = async () => {
     return {
       name: r.title,
       image: r.image,
+      vegetarian: r.vegetarian,
       diet_type: r.diets,
       healthScore: r.healthScore,
       dish_type: r.dishTypes,
@@ -69,6 +70,7 @@ const get_byId = async (id)=>{
     image: response.data.image,
     name: response.data.title,
     dish_type: response.data.dishTypes,
+    vegetarian: response.data.vegetarian,
     diet_type: response.data.diets,
     summary: response.data.summary,
     healthScore: response.data.healthScore,

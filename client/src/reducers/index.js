@@ -2,7 +2,7 @@ import { GET_RECIPE_DETAIL, GET_RECIPES, TYPE_FILTER, SORT } from "../actions/in
 const initialState = {
   recipeDetail:{},
   recipesLoaded: [],
-  typeFiltered: []
+  // typeFiltered: []
 }
 
 function rootReducer(state = initialState, action){
@@ -19,11 +19,16 @@ function rootReducer(state = initialState, action){
         recipesLoaded: action.payload,
       }
     case TYPE_FILTER:
-      let recipes = state.recipesLoaded
-      let resultados = recipes.filter(r => r.dietTypes.filter(d=> d.toLowerCase() === action.payload.toLowerCase()))
+      let recipes = [...state.recipesLoaded]
+      var resultados;
+      if(action.payload === "VEGETARIAN"){
+        resultados = recipes.filter(r => r.vegetarian === true)
+      }else{
+        resultados = recipes.filter(r => r.diet_type.includes(action.payload.toLowerCase()))
+      }
       return {
         ...state,
-        typeFiltered: resultados
+        recipesLoaded: resultados,
       };
     case SORT:
       let orderedRecipes = [...state.recipesLoaded]
