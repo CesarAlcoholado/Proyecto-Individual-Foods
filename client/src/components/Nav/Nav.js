@@ -9,7 +9,7 @@ export default function NavBar() {
           <NavLink exact to="/">
             Home
           </NavLink>
-          <NavLink to="/create">
+          <NavLink to="/post">
             Create Recipe
           </NavLink>
         </li>

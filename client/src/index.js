@@ -8,13 +8,11 @@ import store from './store/index.js';
 
 ReactDOM.render(
   <React.StrictMode>
+   <Router>
     <Provider store= {store}>
-      <Router>
-
-        <App />
-      </Router>
-
+       <App />
     </Provider>
+   </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

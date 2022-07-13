@@ -1,4 +1,4 @@
-import { GET_RECIPE_DETAIL, GET_RECIPES, TYPE_FILTER } from "../actions/index";
+import { GET_RECIPE_DETAIL, GET_RECIPES, TYPE_FILTER, SORT } from "../actions/index";
 const initialState = {
   recipeDetail:{},
   recipesLoaded: [],
@@ -16,7 +16,7 @@ function rootReducer(state = initialState, action){
     case GET_RECIPES:
       return {
         ...state,
-        recipesLoaded: state.recipesLoaded.concat(action.payload),
+        recipesLoaded: action.payload,
       }
     case TYPE_FILTER:
       let recipes = state.recipesLoaded
@@ -25,6 +25,21 @@ function rootReducer(state = initialState, action){
         ...state,
         typeFiltered: resultados
       };
+    case SORT:
+      let orderedRecipes = [...state.recipesLoaded]
+      orderedRecipes = orderedRecipes.sort((a,b) =>{
+        if(a.name < b.name){
+          return action.payload === "ASCENDENTE" ? -1 : 1;
+        }
+        if(a.name > b.name){
+          return action.payload === "ASCENDENTE" ? 1 : -1;
+        }
+        return 0;
+      })
+      return {
+        ...state,
+        recipesLoaded: orderedRecipes
+      }
     default:
       return state;
   }

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { getRecipes } from "../../actions/index.js";
+import { getAllRecipes } from "../../actions/index.js";
 import RecipeCard from '../Recipe Card/RecipeCard.js';
 
 export default function Recipes(){
@@ -8,12 +8,12 @@ export default function Recipes(){
   let dispatch = useDispatch();
 
   useEffect(()=>{
-    dispatch(getRecipes());
+    dispatch(getAllRecipes());
   }, [])
   console.log(recipes);
   return <div>
       {recipes.map(r=> {
-        return <RecipeCard name={r.name} image={r.image}/>
+        return <RecipeCard name={r.name} image={r.image} id={r.id}/>
       })}
     </div>
 }
