@@ -3,6 +3,7 @@ export const GET_RECIPE_DETAIL = "GET_RECIPE_DETAIL";
 export const GET_RECIPES = "GET_RECIPES";
 export const TYPE_FILTER = "TYPE_FILTER";
 export const SORT = "SORT";
+export const SORT_BY_SCORE = "SORT_BY_SCORE";
 
 export function getRecipeDetail(recipeId) {
   return async function (dispatch) {
@@ -58,6 +59,14 @@ export function sort (order){ //ascendente o descendente
     type: "SORT",
     payload: order
   }
+}
+
+export function sortByScore(order) {
+  //ascendente o descendente
+  return {
+    type: "SORT_BY_SCORE",
+    payload: order,
+  };
 }
 
 export function typeFilter(filter) {

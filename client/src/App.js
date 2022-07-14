@@ -11,9 +11,7 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <SearchBar />
-      <Order />
-      <Route exact path="/" render={() => <Home />} />
+      <Route exact path="/home" render={() => <Home />} />
       <Route exact path="/post" render={() => <PostRecipe />} />
       <Route exact path="/recipes/:id" render={() => <RecipeDetail />} />
     </div>
