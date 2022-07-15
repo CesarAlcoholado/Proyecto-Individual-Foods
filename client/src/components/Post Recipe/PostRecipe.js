@@ -20,7 +20,7 @@ export default function PostRecipe(){
     e.preventDefault();
     dispatch(addRecipe(recipe));
     history.push('/')
-    console.log(recipe);
+    alert("Receta creada con exito");
 
   }
 
@@ -28,7 +28,7 @@ export default function PostRecipe(){
   return (
     <form onSubmit={onSubmit}>
       <label>Nombre: </label>
-      <input onChange={onInputChange} name="name" type="text" value={recipe.name} />
+      <input onChange={onInputChange} name="name" type="text" value={recipe.name} required />
       <label>Resumen del plato: </label>
       <input onChange={onInputChange} name="summary" type="text" value={recipe.summary} />
       <label>Health Score</label>
