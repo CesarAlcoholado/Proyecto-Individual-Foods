@@ -50,7 +50,7 @@ export function getRecipes(name) {
       var respuesta = await axios.get(`http://localhost:3001/recipes?name=${name}`);
         return  dispatch({ type: "GET_RECIPES", payload: respuesta.data });
     }catch (error) {
-      console.log(error)      
+      return alert("Recipe not found, try again")      
     }
   };
 }

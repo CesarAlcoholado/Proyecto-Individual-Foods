@@ -9,7 +9,7 @@ export default function SearchBar(){
 
   function onSubmit(e){
     e.preventDefault();
-    dispatch(getRecipes(search));
+      dispatch(getRecipes(search));
   }
 
   function inputChange(e){
@@ -19,7 +19,7 @@ export default function SearchBar(){
 
   return <div>
     <form onSubmit={onSubmit}>
-      <input type='text' onChange={inputChange} value={search}/>
+      <input className='Input-Search' type='text' onChange={inputChange} value={search} placeholder="Search Recipe" />
       <input className="SearchButton" type='submit' value='Buscar'/>
     </form>
   </div>

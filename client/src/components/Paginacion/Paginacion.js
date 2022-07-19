@@ -32,8 +32,10 @@ export const Paginacion = ({page,setPage,max}) => {
   return (
     <div className="Paginado">
       <button className="button" disabled={page === 1 || page < 1} onClick={previousPage}>previous</button>
+      <div className='input-h3' >
       <input className="p-input" onChange={(e)=> onChange(e)} onKeyDown={(e)=> onKeyDown(e)} name="page" autoComplete="off" value={input} />
       <h3 className='h3'>de {max}</h3>
+      </div>
       <button className="button" disabled={page === Math.ceil(max) || page > Math.ceil(max)} onClick={nextPage}>next</button>
     </div>
   );
