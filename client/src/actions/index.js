@@ -4,6 +4,7 @@ export const GET_RECIPES = "GET_RECIPES";
 export const TYPE_FILTER = "TYPE_FILTER";
 export const SORT = "SORT";
 export const SORT_BY_SCORE = "SORT_BY_SCORE";
+export const GET_DIETS = "GET_DIETS";
 
 export function getRecipeDetail(recipeId) {
   return async function (dispatch) {
@@ -53,6 +54,21 @@ export function getRecipes(name) {
     }
   };
 }
+
+export function getDiets() {
+  return async function (dispatch) {
+    try {
+      var respuesta = await axios.get(`http://localhost:3001/diets`);
+      return dispatch({ type: "GET_DIETS", payload: respuesta.data });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+//localhost:3001/diets
+
+
+
 
 export function sort (order){ //ascendente o descendente
   return{

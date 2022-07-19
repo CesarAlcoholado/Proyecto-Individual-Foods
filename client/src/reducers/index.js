@@ -1,7 +1,8 @@
-import { GET_RECIPE_DETAIL, GET_RECIPES, TYPE_FILTER, SORT, SORT_BY_SCORE } from "../actions/index";
+import { GET_RECIPE_DETAIL, GET_RECIPES, TYPE_FILTER, SORT, SORT_BY_SCORE, GET_DIETS } from "../actions/index";
 const initialState = {
   recipeDetail:{},
   recipesLoaded: [],
+  diets:[]
   // typeFiltered: []
 }
 
@@ -17,6 +18,11 @@ function rootReducer(state = initialState, action){
       return {
         ...state,
         recipesLoaded: action.payload,
+      };
+    case GET_DIETS:
+      return{
+        ...state,
+        diets: action.payload,
       };
     case TYPE_FILTER:
       let recipes = [...state.recipesLoaded];

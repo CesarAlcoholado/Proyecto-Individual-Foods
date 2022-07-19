@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import "../../styleSheets/Paginado.css"
 
 export const Paginacion = ({page,setPage,max}) => {
   const [input, setInput] = useState(1);
@@ -29,11 +30,11 @@ export const Paginacion = ({page,setPage,max}) => {
   }
 
   return (
-    <div>
-      <button disabled={page === 1 || page < 1} onClick={previousPage}>previous</button>
-      <input onChange={(e)=> onChange(e)} onKeyDown={(e)=> onKeyDown(e)} name="page" autoComplete="off" value={input} />
-      <p>de {max}</p>
-      <button disabled={page === Math.ceil(max) || page > Math.ceil(max)} onClick={nextPage}>next</button>
+    <div className="Paginado">
+      <button className="button" disabled={page === 1 || page < 1} onClick={previousPage}>previous</button>
+      <input className="p-input" onChange={(e)=> onChange(e)} onKeyDown={(e)=> onKeyDown(e)} name="page" autoComplete="off" value={input} />
+      <h3 className='h3'>de {max}</h3>
+      <button className="button" disabled={page === Math.ceil(max) || page > Math.ceil(max)} onClick={nextPage}>next</button>
     </div>
   );
 }

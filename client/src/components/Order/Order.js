@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { sort, typeFilter, sortByScore } from "../../actions";
+import "../../styleSheets/Order.css";
 const ASCENDENTE = "ASCENDENTE";
 const DESCENDENTE = "DESCENDENTE";
 
@@ -28,12 +29,15 @@ export default function Order (){
   }
 
   return (
-    <>
-      <select value={choiceName} name="select" defaultValue={"default"} onChange={onSelectChange}>
+    <div className="selects">
+      <div>
+      <select className="Selector" value={choiceName} name="select" defaultValue={"default"} onChange={onSelectChange}>
         <option value={"default"} disabled>ordenar por nombre</option>
         <option value={ASCENDENTE}>ascendente</option>
         <option value={DESCENDENTE}>descendente</option>
       </select>
+      </div>
+      <div>
       <select value={choice} name="select" defaultValue={"default"} onChange={filterType}>
         <option value={"default"} disabled>ordenar por dieta</option>
         <option value="GLUTEN FREE">gluten free</option>
@@ -48,11 +52,14 @@ export default function Order (){
         <option value="KETOGENIC">ketogenic</option>
         <option value="FODMAP FRIENDLY">fodmap friendly</option>
       </select>
+      </div>
+      <div>
       <select value={choiceScore} name="select" defaultValue={"default"} onChange={onSelectHealthscore}>
         <option value={"default"} disabled>ordenar por healthscore</option>
         <option value={ASCENDENTE}>ascendente</option>
         <option value={DESCENDENTE}>descendente</option>
       </select>
-    </>
+      </div>
+    </div>
   );
 }

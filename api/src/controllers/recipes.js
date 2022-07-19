@@ -73,7 +73,7 @@ const get_byId = async (id)=>{
     vegetarian: response.data.vegetarian,
     diet_type: response.data.diets,
     summary: response.data.summary,
-    healthScore: response.data.healthScore,
+    healthscore: response.data.healthScore,
     steps: response.data.analyzedInstructions[0]?.steps,
   };
   

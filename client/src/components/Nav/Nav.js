@@ -1,9 +1,9 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getAllRecipes } from "../../actions";
-import Order from "../Order/Order";
 import SearchBar from "../SearchBar/SearchBar";
+import "../../styleSheets/Nav.css";
 
 export default function NavBar() {
 
@@ -14,19 +14,12 @@ export default function NavBar() {
   }
 
   return (
-    <nav >
-      <SearchBar/>
-      <Order/>
-      <ul>
-        <li>
-          <NavLink exact to="/home" onClick={onClick}>
-            Home
-          </NavLink>
-          <NavLink to="/post">
-            Create Recipe
-          </NavLink>
-        </li>
-      </ul>
+    <nav className="nav">
+      <div className="links">
+        <Link className="linkhome" exact to="/home" onClick={onClick}>Home</Link>
+        <Link className="linkrecipe" to="/post">Create Recipe</Link>
+      </div>
+      <SearchBar />
     </nav>
   );
 }

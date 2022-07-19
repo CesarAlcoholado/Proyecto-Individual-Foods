@@ -1,0 +1,44 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.Landing {
+  margin:0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(../Landing.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.Message {
+  margin-top: 350px;
+  display: flex;
+  padding: 7px;
+  color: #06410f;
+  font-style: italic;
+  font-weight: 700;
+  text-shadow: 6px 4px 5px rgba(0, 0, 0, 0.424);
+}
+
+.WButton {
+  color: rgb(231, 218, 218);
+  background-color: hsl(134, 66%, 28%);
+  font-size: 17px;
+  text-align: center;
+  padding: 10px 25px;
+  margin: 15px;
+  border-radius: 3px;
+  box-shadow: 3px 3px 5px 1px hwb(57 17% 56%);
+  cursor: pointer;
+}
+
+.WButton:hover{
+  color: hsl(134, 66%, 28%);
+  background-color: rgb(231, 218, 218);
+}

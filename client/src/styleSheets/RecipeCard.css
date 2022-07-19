@@ -1,0 +1,58 @@
+.cards {
+  display: flex;
+  background-color: rgb(231, 218, 218, 0.3);
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 3px 3px 5px 1px #2c3570;
+  width: 275px;
+  height: 275px;
+  padding: 45px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.linkname{
+  text-decoration: none;
+}
+.image{
+  display: flex;
+    background-color: #ce5249;
+    box-shadow: 3px 3px 5px 1px #2c6670;
+    border-radius: 4px;
+    width: 200px;
+    height: 120px;
+}
+
+h2{
+    display: flex;
+      color: rgb(6, 6, 75);
+      font-style: italic;
+      font-weight: 700;
+      text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.43);
+      font-size: 1.2em;
+}
+.diets{
+      display: flex;
+      justify-content: center;
+      padding-top: 7px;
+      flex-wrap: wrap;
+    }
+
+.dieth{
+    display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 1px;
+      margin-right: 1px;
+      padding-top: 5px;
+      padding-left: 5px;
+      padding-right: 5px;
+      padding-bottom: 1px;
+      border-radius: 3px;
+      box-shadow: 3px 3px 5px 1px #2c3770;
+      background-color: rgb(231, 218, 218, 0.3);
+      color: rgb(6, 6, 75);
+      
+    }

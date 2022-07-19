@@ -31,7 +31,6 @@ router.get('/:id', async (req,res)=>{
   try {
     if (/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(id)) {
       const recipeDb = await get_fromDb(id);
-      console.log(recipeDb);
       res.status(201).send(recipeDb);
     } else {
         const recipeApi = await get_byId(id);
