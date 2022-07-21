@@ -48,6 +48,19 @@ export default function PostRecipe(){
 
   function onInputChange(e) {
     e.preventDefault();
+    const pattern = new RegExp("^[A-Z]+$", "i");
+    if(e.target.name === "healthscore"){
+      if(e.target.value < 0 || e.target.value > 100){
+        alert("healthscore debe ser mayor a 0 y menor a 100");
+        e.target.value = 0;
+      }
+    }
+    if (e.target.name === "name" || e.target.name === "summary" || e.target.name === "steps") {
+       if (!pattern.test(e.target.value)) {
+         alert("Ingrese solo letras");
+         e.target.value = "";
+       }
+    }
     setRecipe({
       ...recipe,
       [e.target.name]: e.target.value,
@@ -62,6 +75,7 @@ export default function PostRecipe(){
 
   function onSubmit(e){
     e.preventDefault();
+    if(errors.name || errors.summary || errors.healthscore || errors.steps) return alert("Datos insuficientes");
     dispatch(addRecipe(recipe));
     history.push('/home')
     alert("Receta creada con exito");
@@ -82,7 +96,7 @@ export default function PostRecipe(){
           <div className="Data">
             <div className="Name">
               <label className="LabelMessage">Nombre: </label>
-              <input onChange={onInputChange} name="name" type="text" value={recipe.name} required placeholder="Insert name"/>
+              <input onChange={onInputChange} name="name" type="text" value={recipe.name} placeholder="Insert name"/>
               {errors.name && <p className="error"> {errors.name}</p>}
             </div>
 

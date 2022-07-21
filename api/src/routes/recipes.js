@@ -5,12 +5,12 @@ const {get_byId, get_fromDb, get_allInfo} = require("../controllers/recipes");
 
 //!terminado
 router.get('/', async (req,res, next)=>{
-  const {name} = req.query; //!validar tolowercase en el front
+  const {name} = req.query;
   try {
     const all_recipes = await get_allInfo();
 
     if(name){
-    const recipes_name = all_recipes.filter((r) =>r.name.toLowerCase().includes(name));
+    const recipes_name = all_recipes.filter((r) =>r.name.toLowerCase().includes(name.toLowerCase()));
     if(recipes_name.length){
     return res.status(201).send(recipes_name)
     }

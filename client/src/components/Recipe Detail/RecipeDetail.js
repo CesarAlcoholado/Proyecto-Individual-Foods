@@ -18,13 +18,21 @@ export default function RecipeDetail () {
 return (
   <div className="RecipeDetail">
     <Link to="/home">
-      <button>Home</button>
+      <button className="HomeButton">Home</button>
     </Link>
     {recipe ? (
       <>
         <h1>{recipe.name}</h1>
         <div className="ImageContainer">
-        <img className="R-image" src={recipe.image ? recipe.image : "https://media.istockphoto.com/photos/culinary-background-with-spices-and-recipe-book-picture-id607299402?b=1&k=20&m=607299402&s=612x612&w=0&h=VWEfmWEwxgzIgiFrztEbq73g4t-bCnWj4G9OFPQY054="} alt="recipe" />
+          <img
+            className="R-image"
+            src={
+              recipe.image
+                ? recipe.image
+                : "https://media.istockphoto.com/photos/culinary-background-with-spices-and-recipe-book-picture-id607299402?b=1&k=20&m=607299402&s=612x612&w=0&h=VWEfmWEwxgzIgiFrztEbq73g4t-bCnWj4G9OFPQY054="
+            }
+            alt="recipe"
+          />
         </div>
         {recipe.dish_type ? (
           <div className="Dish">
@@ -40,7 +48,11 @@ return (
           <h2>Diet Type: </h2>
           {recipe.diet_type
             ? recipe.diet_type.map((d) => {
-                return <h2 className="Type" key={d}>{d}</h2>;
+                return (
+                  <h2 className="Type" key={d}>
+                    {d}
+                  </h2>
+                );
               })
             : recipe.diets?.map((d) => {
                 return (
@@ -55,7 +67,9 @@ return (
           <p>{recipe.summary?.replace(/<[^>]*>/g, "")}</p>
         </div>
         <div className="Healthscore">
-          <h3 className="HealthContainer">Healthiness points: {recipe.healthscore}</h3>
+          <h3 className="HealthContainer">
+            Healthiness points: {recipe.healthscore}
+          </h3>
         </div>
         <div>
           <h3>Steps: </h3>
@@ -64,7 +78,9 @@ return (
               recipe.steps.map((s) => {
                 return <li key={s.number}>{s.step}</li>;
               })
-            ) : <li>{recipe.steps}</li>}
+            ) : (
+              <li>{recipe.steps}</li>
+            )}
           </ul>
         </div>
       </>

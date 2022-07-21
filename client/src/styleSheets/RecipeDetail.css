@@ -7,6 +7,23 @@
         align-items: center;
 }
 
+.HomeButton{
+  color: rgb(231, 218, 218);
+    background-color: hsl(134, 66%, 28%);
+    font-size: 17px;
+    text-align: center;
+    padding: 10px 25px;
+    margin: 15px;
+    border-radius: 3px;
+    box-shadow: 3px 3px 5px 1px hwb(57 17% 56%);
+    cursor: pointer;
+}
+
+.HomeButton:hover{
+  color: hsl(134, 66%, 28%);
+    background-color: rgb(231, 218, 218);
+}
+
 .ImageContainer{
 display: flex;
   flex-direction: row;

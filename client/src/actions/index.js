@@ -78,7 +78,6 @@ export function sort (order){ //ascendente o descendente
 }
 
 export function sortByScore(order) {
-  //ascendente o descendente
   return {
     type: "SORT_BY_SCORE",
     payload: order,
@@ -86,7 +85,7 @@ export function sortByScore(order) {
 }
 
 export function typeFilter(filter) {
-  //ascendente o descendente
+ 
   return {
     type: "TYPE_FILTER",
     payload: filter,

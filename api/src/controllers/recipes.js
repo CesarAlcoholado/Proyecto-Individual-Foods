@@ -55,9 +55,9 @@ const get_fromDb = async(id)=>{
 }
 
 const get_allInfo = async () => {
-  const recipes = await getinfo(); //*traigo de la api
-  const recipes_db = await get_namesfromDb(); //*traigo de la DB
-  const allInfo = recipes.concat(recipes_db); //*junto toda la info
+  const recipes = await getinfo(); 
+  const recipes_db = await get_namesfromDb(); 
+  const allInfo = recipes.concat(recipes_db);
 
   return allInfo;
 };
