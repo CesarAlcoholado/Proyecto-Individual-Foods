@@ -10,7 +10,7 @@ const apiResponse = await axios.get(
 //arreglo con de arrays de tipos (repetidos) --> [[1,2,3],[2],[3,2],[1],[1,2,3,4]]
 const mapedDiets = apiResponse.data.results.map((d) => d.diets);
 const finalDiets = new Set(mapedDiets.join().split(","));
-const diets = [...finalDiets].filter((d) => d !== ""); //? puede haber recipe sin tipo de dieta?
+const diets = [...finalDiets].filter((d) => d !== ""); //? puede haber recipe sin tipo de dieta
 //guardarlos en la db
 diets.forEach((d) => {
   Diet.findOrCreate({

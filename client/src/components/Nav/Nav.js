@@ -5,7 +5,7 @@ import { getAllRecipes } from "../../actions";
 import SearchBar from "../SearchBar/SearchBar";
 import "../../styleSheets/Nav.css";
 
-export default function NavBar() {
+export default function NavBar({setPage}) {
 
   const dispatch = useDispatch();
   
@@ -16,10 +16,14 @@ export default function NavBar() {
   return (
     <nav className="nav">
       <div className="links">
-        <Link className="linkhome" exact to="/home" onClick={onClick}>Home</Link>
-        <Link className="linkrecipe" to="/post">Create Recipe</Link>
+        <Link className="linkhome" exact to="/home" onClick={onClick}>
+          Home
+        </Link>
+        <Link className="linkrecipe" to="/post">
+          Create Recipe
+        </Link>
       </div>
-      <SearchBar />
+      <SearchBar setPage={setPage} />
     </nav>
   );
 }

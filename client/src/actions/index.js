@@ -9,7 +9,7 @@ export const GET_DIETS = "GET_DIETS";
 export function getRecipeDetail(recipeId) {
   return async function (dispatch) {
     try {
-      var respuesta = await axios.get(`http://localhost:3001/recipes/${recipeId}`)
+      var respuesta = await axios.get(`http://localhost:3001/recipes/${recipeId}`)//!cambiar por let
         return dispatch({ type: "GET_RECIPE_DETAIL", payload: respuesta.data });
         }
        catch (error) {

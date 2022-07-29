@@ -24,7 +24,13 @@ export default function PostRecipe(){
   const diets = useSelector((state)=> state.diets);
   const dispatch = useDispatch();
   let history = useHistory();
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({
+    name: '',
+    summary: '',
+    healthscore: '',
+    steps: '',
+    diet_type:[]
+  });
   const [recipe, setRecipe] = useState({
     name: '',
     summary: '',
@@ -39,16 +45,21 @@ export default function PostRecipe(){
 
   function handleSelect(e) {
     e.preventDefault();
-    setRecipe({
-      ...recipe,
-      diet_type: [...recipe.diet_type, e.target.value],
-    });
+    if(recipe.diet_type.includes(e.target.value)){
+      return alert("tipos repetidos!!")
+    }else{
+      setRecipe({
+        ...recipe,
+        diet_type: [...recipe.diet_type, e.target.value],
+      })
+      ;
+    }
   }
 
 
   function onInputChange(e) {
     e.preventDefault();
-    const pattern = new RegExp("^[A-Z]+$", "i");
+    const pattern = new RegExp("^[A-Z]", "i");
     if(e.target.name === "healthscore"){
       if(e.target.value < 0 || e.target.value > 100){
         alert("healthscore debe ser mayor a 0 y menor a 100");
@@ -75,7 +86,7 @@ export default function PostRecipe(){
 
   function onSubmit(e){
     e.preventDefault();
-    if(errors.name || errors.summary || errors.healthscore || errors.steps) return alert("Datos insuficientes");
+    if(errors.name ==='' || errors.summary==='' || errors.healthscore === '' || errors.steps ==='' || (errors["diet_type"].length <= 1)) return alert("Datos insuficientes");
     dispatch(addRecipe(recipe));
     history.push('/home')
     alert("Receta creada con exito");
