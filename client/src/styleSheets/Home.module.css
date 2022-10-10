@@ -1,0 +1,178 @@
+.Home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.burguer{
+  display: none;
+}
+
+.Nav{
+position: fixed;
+top:0;
+  left:0;
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+/* margin-bottom: 5.62em; */
+padding: 0;
+height: 56px;
+width: 100%;
+}
+
+.recipes{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0.62em;
+}
+
+.Paginado {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+}
+
+.filtericon {
+  width: 1.87em;
+  height: 1.87em;
+  cursor: pointer;
+  margin-left: 0.75em;
+}
+
+.orderIcon {
+  display: block;
+  width: 100%;
+  align-items: center;
+  margin-left: 11.25em;
+  margin-top: 90px;
+}
+
+.filterButton {
+  display: flex;
+  align-items: center;
+  background-color: hsl(134, 66%, 28%);
+  color: rgb(231, 218, 218);
+  font-size: 1.06em;
+  text-align: center;
+  margin: 0.62em;
+  border-radius: 3px;
+  box-shadow: 3px 3px 5px 1px hwb(57 17% 56%);
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 0.43em 1.56em;
+  padding-right: 0.62em;
+}
+
+.filterButton:hover {
+  color: hsl(134, 66%, 28%);
+  background-color: rgb(231, 218, 218);
+}
+
+#check, .menu,
+.menuItems {
+  display: none;
+}
+
+  .menuItems {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 56px;
+    bottom: 0;
+    height: 200vh;
+    background-color: #4c7761;
+    list-style: none;
+    width: 30%;
+    min-width: 250px;
+    padding-top: 1.5em;
+    padding-left: 0;
+    z-index: 3;
+  }
+
+@media (max-width: 1024px) {
+
+  .Home{
+    
+  margin-top: 90px;
+  }
+
+  .nav {
+    width: 100%;
+    height: 56px;
+    position: fixed;
+  }
+
+  
+
+  .logo {
+    display: none;
+  }
+
+  .SearchAdd .linknav {
+    display: none;
+  }
+
+  .orderIcon{
+    display: none;
+  }
+
+  .menu {
+    position: absolute;
+    top: 9px;
+    left:0;
+    display: inline;
+    width: auto;
+    height: auto;
+  }
+
+  .burguer {
+    position: absolute;
+    display: block;
+    width: 2.4em;
+    height: 2.4em;
+    z-index: 3;
+  }
+
+
+
+
+  #check:checked ~ .menuItems{
+    display: flex;
+  }
+
+  .li{
+    width: 70%;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .NavButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(134, 66%, 28%);
+    font-size: 12px;
+    text-align: center;
+    padding: 0.58em 1.47em;
+    margin: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 1px solid black;
+    width: 100%;
+    height: 3em;
+    box-shadow: none;
+  }
+  .linknav {
+    text-decoration: none;
+    color: rgb(231, 218, 218);
+    width: 100%;
+  }
+}
+

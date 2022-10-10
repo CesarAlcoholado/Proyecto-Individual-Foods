@@ -1,0 +1,81 @@
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 3px 3px 5px 1px #0d0d0e;
+  width: 21.87em;
+  height: auto;
+  padding-top: 0.43em;
+  padding-bottom: 0.31em;
+  margin: 2.5em;
+  border-radius: 0.43em;
+  transition: transform .2s;
+  background-image: linear-gradient(109.6deg, rgb(53, 112, 62) 11.3%, rgb(122, 167, 67) 91.1%);
+}
+
+.cards:hover {
+  transform: scale(1.05);
+}
+
+.linkname{
+  text-decoration: none;
+}
+
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.image{
+    margin-top: 0px;
+    background-color: #000000;
+    border-radius: 0.25em;
+    width: 20.93em;
+    height: 18.75em;
+    object-fit: cover;
+}
+
+.name{
+      color: rgb(255, 255, 255);
+      font-weight: 700;
+      text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.43);
+      font-size: 18px;
+      margin: 0.83em 0.22em 0.55em 0.22em
+}
+
+.recipeInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.diets{
+      display: flex;
+      justify-content: center;
+      margin-top:0px;
+      flex-wrap: wrap;
+      height: 8.12em;
+      gap: 0.93em;
+      align-items: center;
+      padding: 0 5px
+    }
+
+.dieth{
+    display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 2em;
+      padding: 0.71em;
+      border-radius: 3px;
+      box-shadow: 3px 1px 4px 1px #697561;
+      background-color: rgba(238, 223, 204, 0.753);
+      color: rgb(0, 0, 0);  
+    }
+  
+@media (max-width: 1024px) {
+  .cards {
+    font-size: 12px;
+  }
+}

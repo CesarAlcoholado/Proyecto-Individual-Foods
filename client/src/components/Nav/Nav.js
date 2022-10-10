@@ -1,29 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getAllRecipes } from "../../actions";
 import SearchBar from "../SearchBar/SearchBar";
-import "../../styleSheets/Nav.css";
+import receta from "../../media/home.png";
+import styles from "../../styleSheets/Nav.module.css";
 
-export default function NavBar({setPage}) {
-
+export default function NavBar({ setPage }) {
   const dispatch = useDispatch();
-  
-  function onClick(){
+
+  function onClick() {
     dispatch(getAllRecipes());
   }
 
   return (
-    <nav className="nav">
-      <div className="links">
-        <Link className="linkhome" exact to="/home" onClick={onClick}>
-          Home
+    <nav className={styles.nav}>
+      <div className={styles.NavBarButtons}>
+        <Link className={styles.linknav} exact to="/home" onClick={onClick}>
+          <img className={styles.logo} src={receta} alt="app logo" />
         </Link>
-        <Link className="linkrecipe" to="/post">
-          Create Recipe
+        
+      </div>
+      <div className={styles.SearchAdd}>
+        <SearchBar setPage={setPage} />
+        <Link className={styles.linknav} to="/post">
+          <div className={styles.NavButton}>Create Recipe</div>
         </Link>
       </div>
-      <SearchBar setPage={setPage} />
     </nav>
   );
 }

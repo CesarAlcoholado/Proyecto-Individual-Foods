@@ -1,0 +1,43 @@
+.SearchButton {
+  color: rgb(231, 218, 218);
+  background-color: hsl(134, 66%, 28%);
+  font-size: 17px;
+  text-align: center;
+  padding: 0.58em 1.47em;
+  margin: 0.88em;
+  border-radius: 3px;
+  box-shadow: 3px 3px 5px 1px hwb(57 17% 56%);
+  cursor: pointer;
+  border: 1px solid black
+}
+
+.InputSearch{
+  background-color: hsl(140, 9%, 87%);
+    font-size: 13px;
+    text-align: center;
+    padding: 0.76em 0.76em;
+    margin: 0.38em;
+    border-radius: 3px;
+    box-shadow: 3px 3px 5px 1px hwb(57 17% 56%);
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.SearchButton:hover {
+  color: hsl(134, 66%, 28%);
+  background-color: rgb(231, 218, 218);
+}
+
+@media (max-width: 1024px) {
+   .SearchButton{
+    font-size: 12px;
+    margin-right: 0.10em;
+    margin-left: 0.15em;
+  }
+
+  .InputSearch{
+    font-size: 11px;
+  }
+  
+
+}

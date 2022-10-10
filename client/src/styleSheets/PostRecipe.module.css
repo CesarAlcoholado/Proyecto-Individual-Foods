@@ -1,0 +1,159 @@
+
+.Post{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+.Form {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+}
+
+.Data{
+  height: 70vh;
+  width: 40vw;
+  margin: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    box-shadow: 3px 3px 5px 1px rgb(105, 112, 44);
+    background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(235, 131, 130, 1) 0%, rgba(235, 131, 130, 0.75) 38.6%, rgba(211, 177, 125, 0.52) 72.1%, rgba(211, 177, 125, 0.24) 94.7%);
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.icon {
+  width: 3.52em;
+  height: 3.52em;
+  margin-top: 1.17em;
+}
+.input {
+  width: 70%;
+  height: 1.76rem;
+  border-radius: 5px;
+}
+
+.LabelMessage{
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.93rem;
+    color: #272727;
+    font-weight: 700;
+}
+
+.SelectContainer {
+  align-items: center;
+  width: 40vw;
+  margin: 0;
+}
+
+.Select{
+        background-color: hsl(140, 9%, 87%);
+        font-size: 13px;
+        text-align: center;
+        padding: 0.76em 0.76em;
+        margin: 0.38em;
+        border-radius: 3px;
+        box-shadow: 3px 3px 5px 1px hwb(57 17% 56%);
+        cursor: pointer;
+        border: 1px solid black;
+        width: 25%;
+        color: #252525
+      }
+
+.Diets{
+  list-style: none;
+}
+
+.Button{
+  color: rgb(231, 218, 218);
+    background-color: hsl(134, 66%, 28%);
+    font-size: 17px;
+    text-align: center;
+    padding: 0.58em 1.47em;
+    margin: 0.88em;
+    border-radius: 3px;
+    box-shadow: 3px 3px 5px 1px hwb(57 17% 56%);
+    cursor: pointer;
+}
+
+.errors {
+  font-family: sans-serif;
+  color: #cc352a;
+  font-size: 14px;
+}
+.HomeButton {
+  color: rgb(231, 218, 218);
+  background-color: hsl(134, 66%, 28%);
+  font-size: 17px;
+  text-align: center;
+  padding: 0.58em 1.47em;
+  margin: 0 0.5em;
+  border-radius: 3px;
+  box-shadow: 3px 3px 5px 1px hwb(57 17% 56%);
+  cursor: pointer;
+}
+.HomeButton:hover {
+  color: hsl(134, 66%, 28%);
+  background-color: rgb(231, 218, 218);
+}
+
+@media (max-width: 1024px) {
+  .Data{
+    font-size: 12px;
+    width: 40vw;
+    min-width: 250px;
+    justify-content: space-around;
+    padding: 10px 0;
+  }
+
+  .Button{
+    margin: 0.3em
+  }
+
+  .Button, .HomeButton{
+    font-size: 12px;
+  }
+
+  .Select {
+    min-width: 100px;
+  }
+
+  .errors {
+    font-size: 11px;
+  }
+
+}
+
+@media (max-height: 810px) {
+  .Button, .HomeButton{
+    font-size: 11px;
+    padding: 0.2em 1.47em;
+  }
+
+  .Data{
+    padding: 15px;
+  }
+
+  .Button{
+    margin: 0.3em
+  }
+
+  .Select{
+    font-size: 11px;
+  }
+
+  .LabelMessage{
+    font-size: 11px;
+    padding: 0.5em;
+  }
+}

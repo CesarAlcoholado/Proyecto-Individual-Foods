@@ -1,0 +1,248 @@
+*{
+  box-sizing: border-box;
+}
+
+.RecipeDetail{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.recipeDiv {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  /* width: 100%; */
+  width: 80vw;
+  height: 70vh;
+  align-items: center;
+  padding: 0;
+  /* margin: 6.25em 18.75em 6.25em 6.25em; */
+  margin: 6.25em auto
+}
+
+
+.HomeButton{
+  color: rgb(231, 218, 218);
+    background-color: hsl(134, 66%, 28%);
+    font-size: 17px;
+    text-align: center;
+    padding: 0.58em 1.47em;
+    margin: 0.88em;
+    border-radius: 3px;
+    box-shadow: 3px 3px 5px 1px hwb(57 17% 56%);
+    cursor: pointer;
+    border: none;
+}
+
+.HomeButton:hover{
+  color: hsl(134, 66%, 28%);
+    background-color: rgb(231, 218, 218);
+}
+
+.imageSummary {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-image: linear-gradient(109.8deg, rgba(0, 116, 117, 1) 19.2%, rgba(117, 162, 51, 1) 91.3%);
+  padding: 0.31em;
+  top: 3%;
+  left: 0; 
+  bottom:3%;
+  right: 40%;
+  max-width: 900px;
+}
+
+.Rimage{
+  width: 100% ;
+  height: auto;
+  max-height: 500px;
+  max-width: 600px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.recipeData {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 55em;
+  width: 57%;
+  /* max-width: 60%; */
+  background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(235, 131, 130, 1) 0%, rgba(235, 131, 130, 0.75) 38.6%, rgba(211, 177, 125, 0.52) 72.1%, rgba(211, 177, 125, 0.24) 94.7%);
+  padding-left: 12.5em;
+  padding-right: 0.1em;
+}
+
+.h1 {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.Dish {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.recipeh2{
+  font-size: 17px;
+}
+.recipeh3 {
+  font-size: 14px;
+}
+.recipeh2, .recipeh3 {
+  color: black;
+  margin: 0 5px 0 5px 
+}
+
+.Diets{
+display: flex;
+justify-content:space-between;
+align-items: center;
+width: auto;
+}
+
+.Sh3{
+  margin-bottom: 10px;
+  box-sizing: border-box;
+   color: antiquewhite;
+}
+
+.Summary{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: antiquewhite;
+  font-weight: 500;
+  padding: 0.62em;
+  height: auto;
+  min-height: 150px;
+  overflow: auto;
+  box-sizing:border-box;
+}
+
+.Healthscore{
+    margin: 0 2px;
+    padding: 0 5px;
+    color: black;
+  }
+  
+  .stepsContainer {
+    width: 70%;
+    height: 30%;
+    overflow-y: scroll;
+    padding: 0.62em;
+  }
+  
+  .Summary p {
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  font-size: 15px;
+  overflow-y: scroll;
+}
+
+.Steps{
+  border-radius: 13px;
+  padding: 0.62em;
+  background-color: rgb(231, 218, 218, 0.3);
+  color: black;
+  font-weight: 500;
+  list-style: none;
+  
+}
+
+.stepsContainer::-webkit-scrollbar {
+  width: 0.75em;
+}
+
+.stepsContainer::-webkit-scrollbar-track {
+  background: radial-gradient(circle farthest-corner at 10% 20%, rgba(235, 131, 130, 1) 0%, rgba(235, 131, 130, 0.75) 38.6%, rgba(211, 177, 125, 0.52) 72.1%, rgba(211, 177, 125, 0.24) 94.7%);
+}
+
+.stepsContainer::-webkit-scrollbar-thumb {
+  background-color: rgb(255, 192, 150);
+  border-radius: 20px;
+  border: 3px solid rgb(66, 112, 60);
+}
+
+.Summary p::-webkit-scrollbar {
+  width: 0.75em;
+}
+
+.Summary p::-webkit-scrollbar-track {
+  background-image: linear-gradient(109.6deg, rgb(53, 112, 62) 11.3%, rgb(122, 167, 67) 91.1%);
+}
+
+.Summary p::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(109.6deg, rgb(53, 112, 62) 11.3%, rgb(122, 167, 67) 91.1%);
+  border-radius: 20px;
+  border: 3px solid rgb(66, 112, 60);
+}
+
+@media (max-width: 1024px) {
+  .recipeData {
+    position: absolute;
+    display: flex;
+    justify-content:flex-end;
+    font-size: 12px;
+    min-height: 400px;
+    width: 100%;
+    top: 50%;
+    bottom: 0;
+    padding: 0;
+    z-index: -1;
+  }
+
+  .recipeData *{
+    padding: 0.5em
+  }
+
+  .imageSummary {
+    position: relative;
+    font-size: 12px;
+    justify-content: center;
+    width: 90%;
+    min-height: 250px;
+    max-height: 600px;
+  }
+
+  .Rimage{
+    max-height: 400px;
+    max-width: 450px;
+  }
+
+  .recipeDiv {
+    flex-direction: column;
+    height: auto;
+    width: 80vw;
+    margin-bottom: 0;
+  }
+
+  .HomeButton{
+    font-size: 17px;
+  }
+
+  .stepsContainer {
+    height: auto;
+    max-height: 40px;
+  }
+
+  .Summary{
+    min-height: 250px;
+  }
+  .h1{
+  font-size: 16px;
+}
+
+  .recipeh2{
+    font-size: 13px;
+  }
+
+}

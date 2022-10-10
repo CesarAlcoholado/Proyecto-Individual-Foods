@@ -1,45 +1,57 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { sort, typeFilter, sortByScore } from "../../actions";
-import "../../styleSheets/Order.css";
+import styles from "../../styleSheets/Order.module.css";
 const ASCENDENTE = "ASCENDENTE";
 const DESCENDENTE = "DESCENDENTE";
 
-
-export default function Order (){
-
+export default function Order() {
   const dispatch = useDispatch();
   const [choice, setChoice] = useState();
   const [choiceName, setChoiceName] = useState();
   const [choiceScore, setChoiceScore] = useState();
-  
-  function onSelectChange (e){
+
+  function onSelectChange(e) {
     dispatch(sort(e.target.value));
-    setChoiceName("default")
+    setChoiceName("default");
   }
 
-  function filterType (e){
+  function filterType(e) {
     dispatch(typeFilter(e.target.value));
-    setChoice("default")
+    setChoice("default");
   }
 
   function onSelectHealthscore(e) {
     dispatch(sortByScore(e.target.value));
-    setChoiceScore("default")
+    setChoiceScore("default");
   }
 
   return (
-    <div className="selects">
-      <div>
-      <select className="Selector" value={choiceName} name="select" defaultValue={"default"} onChange={onSelectChange}>
-        <option value={"default"} disabled>ordenar por nombre</option>
+    <div className={styles.selects}>
+      <select
+        className={styles.Selector}
+        value={choiceName}
+        name="select"
+        defaultValue={"default"}
+        onChange={onSelectChange}
+      >
+        <option value={"default"} disabled>
+          order by name
+        </option>
         <option value={ASCENDENTE}>ascendente</option>
         <option value={DESCENDENTE}>descendente</option>
       </select>
-      </div>
-      <div>
-      <select value={choice} name="select" defaultValue={"default"} onChange={filterType}>
-        <option value={"default"} disabled>ordenar por dieta</option>
+
+      <select
+        className={styles.Selector}
+        value={choice}
+        name="select"
+        defaultValue={"default"}
+        onChange={filterType}
+      >
+        <option value={"default"} disabled>
+          order by diet
+        </option>
         <option value="GLUTEN FREE">gluten free</option>
         <option value="DAIRY FREE">dairy free</option>
         <option value="LACTO OVO VEGETARIAN">lacto ovo vegetarian</option>
@@ -52,14 +64,20 @@ export default function Order (){
         <option value="KETOGENIC">ketogenic</option>
         <option value="FODMAP FRIENDLY">fodmap friendly</option>
       </select>
-      </div>
-      <div>
-      <select value={choiceScore} name="select" defaultValue={"default"} onChange={onSelectHealthscore}>
-        <option value={"default"} disabled>ordenar por healthscore</option>
+
+      <select
+        className={styles.Selector}
+        value={choiceScore}
+        name="select"
+        defaultValue={"default"}
+        onChange={onSelectHealthscore}
+      >
+        <option value={"default"} disabled>
+          order by score
+        </option>
         <option value={ASCENDENTE}>ascendente</option>
         <option value={DESCENDENTE}>descendente</option>
       </select>
-      </div>
     </div>
   );
 }
