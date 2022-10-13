@@ -16,21 +16,21 @@ export default function RecipeDetail() {
 
   return (
     <div className={styles.RecipeDetail}>
-      {recipe ? (
+      {Object.keys(recipe).length ? (
         <div className={styles.recipeDiv}>
           <div className={styles.imageSummary}>
             <div className={styles.Rimage}>
-            <img
-              className={styles.Rimage}
-              src={
-                recipe.image
-                  ? recipe.image
-                  : "https://media.istockphoto.com/photos/culinary-background-with-spices-and-recipe-book-picture-id607299402?b=1&k=20&m=607299402&s=612x612&w=0&h=VWEfmWEwxgzIgiFrztEbq73g4t-bCnWj4G9OFPQY054="
-              }
-              alt="recipe"
-            />
+              <img
+                className={styles.Rimage}
+                src={
+                  recipe.image
+                    ? recipe.image
+                    : "https://media.istockphoto.com/photos/culinary-background-with-spices-and-recipe-book-picture-id607299402?b=1&k=20&m=607299402&s=612x612&w=0&h=VWEfmWEwxgzIgiFrztEbq73g4t-bCnWj4G9OFPQY054="
+                }
+                alt="recipe"
+              />
             </div>
-              <h3 className={styles.Sh3} >Summary: </h3>
+            <h3 className={styles.Sh3}>Summary: </h3>
             <div className={styles.Summary}>
               <p>{recipe.summary?.replace(/<[^>]*>/g, "")}</p>
             </div>
@@ -51,51 +51,50 @@ export default function RecipeDetail() {
             ) : (
               <br />
             )}
-            <div className={styles.Diets}>
+            <div className={styles.dietsContainer}>
               <h2 className={styles.recipeh2}>Diet Type: </h2>
-              {recipe.diet_type
-                ? recipe.diet_type.map((d) => {
-                    return (
-                      <h3 className={styles.recipeh3} key={d}>
-                        {d}
-                      </h3>
-                    );
-                  })
-                : recipe.diets?.map((d) => {
-                    return (
-                      <h3 className={styles.recipeh3} key={d.name}>
-                        {d.name}
-                      </h3>
-                    );
-                  })}
+              <div className={styles.Diets}>
+                {recipe.diet_type
+                  ? recipe.diet_type.map((d) => {
+                      return (
+                        <h3 className={styles.recipeh3} key={d}>
+                          {d}
+                        </h3>
+                      );
+                    })
+                  : recipe.diets?.map((d) => {
+                      return (
+                        <h3 className={styles.recipeh3} key={d.name}>
+                          {d.name}
+                        </h3>
+                      );
+                    })}
+              </div>
             </div>
-
             <div className={styles.Healthscore}>
               <h3 className={styles.HealthContainer}>
                 Healthiness points: {recipe.healthscore}
               </h3>
             </div>
-              <h3>Steps: </h3>
-              <div className={styles.stepsContainer}>
-                <ul className={styles.Steps}>
-                  {Array.isArray(recipe.steps) ? (
-                    recipe.steps.map((s) => {
-                      return <li key={s.number}>{s.step}</li>;
-                    })
-                  ) : (
-                    <li>{recipe.steps}</li>
-                  )}
-                </ul>
-              </div>
+            <h3>Steps: </h3>
+            <div className={styles.stepsContainer}>
+              <ul className={styles.Steps}>
+                {Array.isArray(recipe.steps) ? (
+                  recipe.steps.map((s) => {
+                    return <li key={s.number}>{s.step}</li>;
+                  })
+                ) : (
+                  <li>{recipe.steps}</li>
+                )}
+              </ul>
+            </div>
             <Link to="/home">
               <button className={styles.HomeButton}>Home</button>
             </Link>
           </div>
         </div>
       ) : (
-        <div>
-          <h2>Loading...</h2>
-        </div>
+        <span class={styles.loader}></span>
       )}
     </div>
   );
