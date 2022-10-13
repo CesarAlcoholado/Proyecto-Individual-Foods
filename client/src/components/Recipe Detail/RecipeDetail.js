@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getRecipeDetail } from "../../actions/index.js";
 import { Link } from "react-router-dom";
 import styles from "../../styleSheets/RecipeDetail.module.css";
+import default_image from "../../media/default_image.jpg";
 
 export default function RecipeDetail() {
   let { id } = useParams();
@@ -25,7 +26,7 @@ export default function RecipeDetail() {
                 src={
                   recipe.image
                     ? recipe.image
-                    : "https://media.istockphoto.com/photos/culinary-background-with-spices-and-recipe-book-picture-id607299402?b=1&k=20&m=607299402&s=612x612&w=0&h=VWEfmWEwxgzIgiFrztEbq73g4t-bCnWj4G9OFPQY054="
+                    : {default_image}
                 }
                 alt="recipe"
               />

@@ -9,6 +9,7 @@ import Order from "../Order/Order";
 import styles from "../../styleSheets/Home.module.css";
 import filter from "../../media/filterbutton.png";
 import menu from "../../media/list.png";
+import default_image from "../../media/default_image.jpg";
 
 export default function Recipes() {
   let recipes = useSelector((state) => state.recipesLoaded);
@@ -53,24 +54,24 @@ export default function Recipes() {
         {display ? <Order /> : ""}
       </div>
       <div className={styles.recipes}>
-        {recipes
-          .slice((page - 1) * perPage, (page - 1) * perPage + perPage)
-          .map((r) => {
-            return (
-              <RecipeCard
-                name={r.name}
-                image={
-                  r.image
-                    ? r.image
-                    : "https://media.istockphoto.com/photos/culinary-background-with-spices-and-recipe-book-picture-id607299402?b=1&k=20&m=607299402&s=612x612&w=0&h=VWEfmWEwxgzIgiFrztEbq73g4t-bCnWj4G9OFPQY054="
-                }
-                id={r.id}
-                diet_type={
-                  r.diet_type ? r.diet_type : r.diets.map((d) => d.name)
-                }
-              />
-            );
-          })}
+        {recipes.length ? (
+          recipes
+            .slice((page - 1) * perPage, (page - 1) * perPage + perPage)
+            .map((r) => {
+              return (
+                <RecipeCard
+                  name={r.name}
+                  image={r.image ? r.image : { default_image }}
+                  id={r.id}
+                  diet_type={
+                    r.diet_type ? r.diet_type : r.diets.map((d) => d.name)
+                  }
+                />
+              );
+            })
+        ) : (
+          <span className={styles.loader}></span>
+        )}
       </div>
       <div className={styles.Paginado}>
         <Paginacion page={page} setPage={setPage} max={max} />
