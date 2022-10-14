@@ -123,7 +123,7 @@ export default function PostRecipe() {
       <form onSubmit={onSubmit}>
         <div className={styles.Form}>
           <div className={styles.Data}>
-            <img className={styles.icon} src={icon} alt="Create icon"/>
+            <img className={styles.icon} src={icon} alt="Create icon" />
             <label className={styles.LabelMessage}>Nombre: </label>
             <input
               className={styles.input}
@@ -178,7 +178,9 @@ export default function PostRecipe() {
                 ))}{" "}
               </select>
             </div>
-            {errors.diet_type && <p>{errors.diet_type}</p>}
+            {errors.diet_type && (
+              <p className={styles.error}>{errors.diet_type}</p>
+            )}
             <p>
               <ul className={styles.Diets}>
                 <li>{recipe.diet_type.map((d) => d + " , ")}</li>

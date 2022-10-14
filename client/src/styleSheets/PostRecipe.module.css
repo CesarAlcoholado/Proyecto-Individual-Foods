@@ -86,10 +86,12 @@
     cursor: pointer;
 }
 
-.errors {
+.error {
   font-family: sans-serif;
   color: #cc352a;
-  font-size: 14px;
+  font-size: 11px;
+  margin: 0;
+  padding: 0;
 }
 .HomeButton {
   color: rgb(231, 218, 218);
