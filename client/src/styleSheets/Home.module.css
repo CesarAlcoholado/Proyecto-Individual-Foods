@@ -109,6 +109,7 @@ z-index: 1;
   text-indent: -9999em;
   animation: mulShdSpin 1.3s infinite linear;
   transform: translateZ(0);
+  margin-bottom: 25px;
 }
 
 @keyframes mulShdSpin {
