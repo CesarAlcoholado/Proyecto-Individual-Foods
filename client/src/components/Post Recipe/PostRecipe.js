@@ -99,11 +99,11 @@ export default function PostRecipe() {
   function onSubmit(e) {
     e.preventDefault();
     if (
-      !errors.name ||
-      !errors.summary ||
-      !errors.healthscore ||
-      !errors.steps ||
-      (errors.diet_type.length === 0)
+      errors.name ||
+      errors.summary ||
+      errors.healthscore ||
+      errors.steps ||
+      errors.diet_type
     ){
       console.log(errors);
       return alert("Datos insuficientes");
