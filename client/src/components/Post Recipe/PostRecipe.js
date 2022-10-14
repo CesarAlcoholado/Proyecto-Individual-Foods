@@ -19,6 +19,9 @@ function validate(recipe) {
   if (!recipe.steps) {
     errors.steps = "Steps required";
   }
+  if (!recipe.diet_type.length){
+    errors.diet_type = "Diet types required"
+  }
   return errors;
 }
 export default function PostRecipe() {
@@ -53,6 +56,12 @@ export default function PostRecipe() {
         ...recipe,
         diet_type: [...recipe.diet_type, e.target.value],
       });
+      setErrors(
+        validate({
+          ...recipe,
+          diet_type: [...recipe.diet_type, e.target.value],
+        })
+      );
     }
   }
 
@@ -88,14 +97,13 @@ export default function PostRecipe() {
   }
 
   function onSubmit(e) {
-    e.preventDefault(); console.log(errors);
+    e.preventDefault();
     if (
       errors.name === "" ||
       errors.summary === "" ||
       errors.healthscore === "" ||
-      errors.steps === ""
-      //  ||
-      // (errors.diet_type).length <= 1
+      errors.steps === "" ||
+      (!errors.diet_type.length)
     )
       return alert("Datos insuficientes");
     dispatch(addRecipe(recipe));
@@ -170,6 +178,7 @@ export default function PostRecipe() {
                 ))}{" "}
               </select>
             </div>
+            {errors.diet_type && <p>{errors.diet_type}</p>}
             <p>
               <ul className={styles.Diets}>
                 <li>{recipe.diet_type.map((d) => d + " , ")}</li>
