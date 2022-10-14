@@ -103,11 +103,10 @@ export default function PostRecipe() {
       errors.summary === "" ||
       errors.healthscore === "" ||
       errors.steps === "" ||
-      (!errors.diet_type.length)
+      (errors.diet_type.length === 0)
     )
       return alert("Datos insuficientes");
     dispatch(addRecipe(recipe));
-    history.push("/home");
     alert("Receta creada con exito");
     setRecipe({
       name: "",
