@@ -104,8 +104,10 @@ export default function PostRecipe() {
       !errors.healthscore ||
       !errors.steps ||
       (errors.diet_type.length === 0)
-    )
+    ){
+      console.log(errors);
       return alert("Datos insuficientes");
+    }
     dispatch(addRecipe(recipe));
     alert("Receta creada con exito");
     setRecipe({
