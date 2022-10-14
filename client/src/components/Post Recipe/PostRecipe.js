@@ -99,10 +99,10 @@ export default function PostRecipe() {
   function onSubmit(e) {
     e.preventDefault();
     if (
-      errors.name === "" ||
-      errors.summary === "" ||
-      errors.healthscore === "" ||
-      errors.steps === "" ||
+      !errors.name ||
+      !errors.summary ||
+      !errors.healthscore ||
+      !errors.steps ||
       (errors.diet_type.length === 0)
     )
       return alert("Datos insuficientes");
