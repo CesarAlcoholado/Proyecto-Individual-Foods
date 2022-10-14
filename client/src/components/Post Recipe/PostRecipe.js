@@ -117,6 +117,12 @@ export default function PostRecipe() {
       steps: [],
       diet_type: [],
     });
+    setErrors({name: "",
+    summary: "",
+    healthscore: "",
+    steps: "",
+    diet_type: [],
+  })
   }
 
   return (
