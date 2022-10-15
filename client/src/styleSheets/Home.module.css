@@ -48,7 +48,7 @@ z-index: 1;
 }
 
 .orderIcon {
-  display: block;
+  display: flex;
   width: 100%;
   align-items: center;
   margin-left: 11.25em;
