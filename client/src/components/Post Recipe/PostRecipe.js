@@ -66,7 +66,7 @@ export default function PostRecipe() {
 
   function onInputChange(e) {
     e.preventDefault();
-    const pattern = new RegExp("^[A-Z\\s]", "i");
+    const pattern = new RegExp("!/^[A-Za-z\s]*$/", "i");
     if (e.target.name === "healthscore") {
       if (e.target.value < 0 || e.target.value > 100) {
         alert("healthscore must be higher than 0 and lower than 100");
