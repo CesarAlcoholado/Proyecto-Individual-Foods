@@ -1,17 +1,15 @@
 // import React from "react";
-// import { screen, render } from "@testing-library/react";
+import { screen, render } from "@testing-library/jest-dom";
 // import { Provider } from "react-redux";
-// import SearchBar from "./SearchBar.js"
+import SearchBar from "./SearchBar.js"
 
-// describe("SearchBar", () => {
-//   it("must have a PlaceholderText", () => {
-//     render(
-//       <Provider>
-//         <SearchBar />
-//       </Provider>
-//     );
-//     expect(
-//       screen.queryAllByPlaceholderText(/Search Recipe/i)
-//     ).toBeInTheDocument();
-//   });
-// });
+describe("Testeo de SearchBar", () => {
+  it("must have a PlaceholderText", () => {
+    render(
+        <SearchBar />
+    );
+    expect(
+      screen.queryAllByPlaceholderText(/Search Recipe/i)
+    ).toBeInTheDocument();
+  });
+});

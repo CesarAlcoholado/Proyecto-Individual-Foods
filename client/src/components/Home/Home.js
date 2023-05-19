@@ -5,7 +5,7 @@ import { Paginacion } from "../Paginacion/Paginacion.js";
 import { Link } from "react-router-dom";
 import RecipeCard from "../Recipe Card/RecipeCard.js";
 import Nav from "../Nav/Nav.js";
-import Order from "../Order/Order";
+import Order from "../Order/Order.js";
 import styles from "../../styleSheets/Home.module.css";
 import filter from "../../media/filterbutton.png";
 import menu from "../../media/list.png";
